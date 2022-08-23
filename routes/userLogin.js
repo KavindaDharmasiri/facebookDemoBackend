@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
             })
 
         }
-        res.json(posts)
     } catch (err) {
         res.send('Err: ' + err)
     }
