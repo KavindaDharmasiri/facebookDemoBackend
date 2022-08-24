@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
             User.findById(posts[i]._id).then(doc => {
                 if (!doc){return res.status(404).end()}
 
-                if(req.body.username === doc.firstName){
+                if(req.body.email === doc.email){
                     if(req.body.password === doc.password){
                         console.log('logging Success\n'+ doc)
                         res.status(204).end()
