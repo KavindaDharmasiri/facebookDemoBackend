@@ -39,8 +39,8 @@ router.get('/', async (req, res) => {
 })
 
 //Get By Id
-router.get('/:id', async (req, res) => {
-    User.findById(req.params.id).then(doc => {
+router.get('/getUser', async (req, res) => {
+    User.findById(req.body.id).then(doc => {
         if (!doc){return res.status(404).end()}
         return res.status(200).json(doc)
     }).catch(err => next(err))
@@ -58,9 +58,9 @@ router.put('/', async (req, res) => {
 })
 
 //Delete
-router.delete('/:id', (req, res) => {
-    res.send(req.params.id)
-    User.findByIdAndRemove(req.params.id).exec().then( doc =>{
+router.delete('/delete', (req, res) => {
+    res.send(req.body.id)
+    User.findByIdAndRemove(req.body.id).exec().then( doc =>{
         if (!doc){
             return res.status(404).end()
         }

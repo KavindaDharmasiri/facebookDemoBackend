@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "15c816fb-b4d7-4613-9695-0148b7d01f0e",
+		"name": "facebook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get all user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "post user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"001\",\n    \"firstName\": \"gimhandha\",\n    \"surname\": \"kavi\",\n    \"gender\": \"male\",\n    \"dateOfBirth\": \"2000\",\n    \"password\": \"akkgd\",\n    \"phoneNumber\": \"076544\",\n    \"email\": \"kavinda@gdas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"63035101dbfe4e9d03609d0e\",\r\n    \"code\": \"005\",\r\n    \"firstName\": \"gimhandha\",\r\n    \"surname\": \"kavi\",\r\n    \"gender\": \"male\",\r\n    \"dateOfBirth\": \"2000\",\r\n    \"password\": \"akkgd\",\r\n    \"phoneNumber\": \"076544\",\r\n    \"email\": \"kavinda@gdas\",\r\n    \"__v\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"63037138dbfe4e9d03609d11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/users/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "get By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"63035101dbfe4e9d03609d0e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/users/getUser"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "get All Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/posts"
+					},
+					"response": []
+				},
+				{
+					"name": "post Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"code\": \"P001\",\n    \"userId\": \"63035101dbfe4e9d03609d0e\",\n    \"date\": \"2006\",\n    \"time\": \"12.45\",\n    \"title\": \"title\",\n    \"body\": \"body\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/posts"
+					},
+					"response": []
+				},
+				{
+					"name": "update Post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"630633547b388674f7a45ffe\",\r\n   \"code\": \"P007\",\r\n    \"userId\": \"63035101dbfe4e9d03609d0e\",\r\n    \"date\": \"2006\",\r\n    \"time\": \"12.45\",\r\n    \"title\": \"title\",\r\n    \"body\": \"body\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/posts"
+					},
+					"response": []
+				},
+				{
+					"name": "get Post By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"63039b1ca40b3dd3dce55dee\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/posts/getPost"
+					},
+					"response": []
+				},
+				{
+					"name": "delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"630635f670572e53c7b72788\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/posts/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "get Posts By User Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"63035101dbfe4e9d03609d0e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/posts/getPostbyUserId"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "logging",
+			"item": [
+				{
+					"name": "logging",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"gimhandha\",\r\n    \"password\":\"akkgd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/logging"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

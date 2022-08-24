@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
                 if(req.body.username === doc.firstName){
                     if(req.body.password === doc.password){
                         console.log('logging Success\n'+ doc)
+                        res.status(204).end()
                     }
                 }
 

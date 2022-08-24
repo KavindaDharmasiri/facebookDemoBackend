@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 })
 
 //Get All By User Id
-router.get('/getPost', async (req, res) => {
+router.get('/getPostbyUserId', async (req, res) => {
 
     Post.find({'userId' : req.body.id},) .then(doc => {
         if (!doc){return res.status(404).end()}
@@ -46,8 +46,8 @@ router.get('/getPost', async (req, res) => {
 })
 
 //Get By Id
-router.get('/:id', async (req, res) => {
-    Post.findById(req.params.id).then(doc => {
+router.get('/getPost', async (req, res) => {
+    Post.findById(req.body.id).then(doc => {
         if (!doc){return res.status(404).end()}
         return res.status(200).json(doc)
     }).catch(err => next(err))
@@ -65,9 +65,9 @@ router.put('/', async (req, res) => {
 })
 
 //Delete
-router.delete('/:id', (req, res) => {
-    res.send(req.params.id)
-    Post.findByIdAndRemove(req.params.id).exec().then( doc =>{
+router.delete('/delete', (req, res) => {
+    res.send(req.body.id)
+    Post.findByIdAndRemove(req.body.id).exec().then( doc =>{
         if (!doc){
             return res.status(404).end()
         }
