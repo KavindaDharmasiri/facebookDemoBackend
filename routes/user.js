@@ -38,27 +38,29 @@ router.get('/', async (req, res) => {
 
 router.get('/getUser', async (req, res) => {
     User.findById(req.body.id).then(doc => {
-        if (!doc){return res.status(404).end()}
+        if (!doc) {
+            return res.status(404).end()
+        }
         return res.status(200).json(doc)
     }).catch(err => next(err))
 
 })
 
-//Update
 router.put('/', async (req, res) => {
-    var conditions = {_id: req.body._id };
+    var conditions = {_id: req.body._id};
     console.log(conditions)
-    User.update(conditions,req.body).then(doc => {
-        if (!doc){return res.status(404).end()}
+    User.update(conditions, req.body).then(doc => {
+        if (!doc) {
+            return res.status(404).end()
+        }
         return res.status(200).json(doc)
     }).catch(err => next(err))
 })
 
-//Delete
 router.delete('/delete', (req, res) => {
     res.send(req.body.id)
-    User.findByIdAndRemove(req.body.id).exec().then( doc =>{
-        if (!doc){
+    User.findByIdAndRemove(req.body.id).exec().then(doc => {
+        if (!doc) {
             return res.status(404).end()
         }
         return res.status(204).end()

@@ -6,7 +6,6 @@ const Post = require('../models/postCreat.models')
 
 app.use(express.json())
 
-//Save
 router.post('/', async (req, res) => {
     const post = new Post({
         code: req.body.code,
@@ -26,7 +25,6 @@ router.post('/', async (req, res) => {
     }
 })
 
-//Get All
 router.get('/', async (req, res) => {
     try {
         const posts = await Post.find()
@@ -36,39 +34,41 @@ router.get('/', async (req, res) => {
     }
 })
 
-//Get All By User Id
 router.get('/getPostbyUserId', async (req, res) => {
 
-    Post.find({'userId' : req.body.id},) .then(doc => {
-        if (!doc){return res.status(404).end()}
+    Post.find({'userId': req.body.id},).then(doc => {
+        if (!doc) {
+            return res.status(404).end()
+        }
         return res.status(200).json(doc)
     }).catch(err => next(err))
 })
 
-//Get By Id
 router.get('/getPost', async (req, res) => {
     Post.findById(req.body.id).then(doc => {
-        if (!doc){return res.status(404).end()}
+        if (!doc) {
+            return res.status(404).end()
+        }
         return res.status(200).json(doc)
     }).catch(err => next(err))
 
 })
 
-//Update
 router.put('/', async (req, res) => {
-    var conditions = {_id: req.body._id };
+    var conditions = {_id: req.body._id};
     console.log(conditions)
-    Post.update(conditions,req.body).then(doc => {
-        if (!doc){return res.status(404).end()}
+    Post.update(conditions, req.body).then(doc => {
+        if (!doc) {
+            return res.status(404).end()
+        }
         return res.status(200).json(doc)
     }).catch(err => next(err))
 })
 
-//Delete
 router.delete('/delete', (req, res) => {
     res.send(req.body.id)
-    Post.findByIdAndRemove(req.body.id).exec().then( doc =>{
-        if (!doc){
+    Post.findByIdAndRemove(req.body.id).exec().then(doc => {
+        if (!doc) {
             return res.status(404).end()
         }
         return res.status(204).end()

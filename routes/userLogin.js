@@ -6,18 +6,19 @@ const User = require('../models/user.models')
 
 app.use(express.json())
 
-//Looking For User
 router.get('/', async (req, res) => {
     try {
         const posts = await User.find()
-        for (var i =0 ; i<posts.length ; i++){
+        for (var i = 0; i < posts.length; i++) {
 
             User.findById(posts[i]._id).then(doc => {
-                if (!doc){return res.status(404).end()}
+                if (!doc) {
+                    return res.status(404).end()
+                }
 
-                if(req.body.email === doc.email){
-                    if(req.body.password === doc.password){
-                        console.log('logging Success\n'+ doc)
+                if (req.body.email === doc.email) {
+                    if (req.body.password === doc.password) {
+                        console.log('logging Success\n' + doc)
                         res.status(204).end()
                     }
                 }
