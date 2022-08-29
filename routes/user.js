@@ -6,7 +6,6 @@ const User = require('../models/user.models')
 
 app.use(express.json())
 
-//Save
 router.post('/', async (req, res) => {
     const user = new User({
         code: req.body.code,
@@ -28,7 +27,6 @@ router.post('/', async (req, res) => {
     }
 })
 
-//Get All
 router.get('/', async (req, res) => {
     try {
         const items = await User.find()
@@ -38,7 +36,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-//Get By Id
 router.get('/getUser', async (req, res) => {
     User.findById(req.body.id).then(doc => {
         if (!doc){return res.status(404).end()}
